@@ -31,8 +31,9 @@ public class JvmController {
 
 
     @GetMapping(path = "attach/{pid}")
-    public void attach(@PathVariable("pid") Integer pid) throws IOException, AttachNotSupportedException {
+    public Result attach(@PathVariable("pid") Integer pid) throws IOException, AttachNotSupportedException {
         log.info("attach pid : {}", pid);
         jvmService.attach(pid);
+        return Result.ok();
     }
 }
